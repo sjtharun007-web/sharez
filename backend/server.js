@@ -11,8 +11,13 @@ connectDB();
 
 // ✅ CORS (correct)
 app.use(cors({
-  origin: "*",
-  methods: ["GET", "POST", "PUT", "DELETE"],
+  origin: [
+    'https://profound-gratitude-production-8e76.up.railway.app',
+    'http://localhost:3000',
+    'http://localhost:4200'
+  ],
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
 }));
 
