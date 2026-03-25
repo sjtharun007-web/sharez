@@ -5,9 +5,11 @@ const connectDB = require('./config/db');
 
 dotenv.config();
 const app = express();
-connectDB();
-import cors from "cors";
 
+// Connect DB
+connectDB();
+
+// ✅ CORS (correct)
 app.use(cors({
   origin: "*",
   methods: ["GET", "POST", "PUT", "DELETE"],
@@ -15,6 +17,8 @@ app.use(cors({
 }));
 
 app.options("*", cors());
+
+// Middleware
 app.use(express.json());
 
 // Routes
@@ -27,9 +31,13 @@ app.use('/api/admin',     require('./routes/adminRoutes'));
 
 app.get('/api/health', (req, res) => res.json({ status: 'OK' }));
 
+// Error handler
 app.use((err, req, res, next) => {
   console.error(err.stack);
-  res.status(err.statusCode || 500).json({ success: false, message: err.message || 'Server Error' });
+  res.status(err.statusCode || 500).json({
+    success: false,
+    message: err.message || 'Server Error'
+  });
 });
 
 const PORT = process.env.PORT || 5000;
