@@ -6,9 +6,14 @@ const connectDB = require('./config/db');
 dotenv.config();
 const app = express();
 connectDB();
-
 app.use(cors({
-  origin: ['http://localhost:3000', 'http://localhost:4200', 'http://localhost:5173'],
+  origin: [
+    'http://localhost:3000',
+    'http://localhost:5173',
+    'http://localhost:4200',
+    'https://YOUR-FRONTEND.railway.app',
+    'https://YOUR-ADMIN.railway.app'
+  ],
   credentials: true
 }));
 app.use(express.json());
