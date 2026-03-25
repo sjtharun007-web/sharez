@@ -1,0 +1,92 @@
+.answer-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: var(--transition);
+}
+.answer-item:hover { border-color: var(--border-light); }
+.answer-solved { border-color: var(--green) !important; box-shadow: 0 0 0 1px var(--green); }
+
+.solved-badge {
+  background: var(--green-dim); color: var(--green);
+  font-size: 0.75rem; font-weight: 700;
+  padding: 0.35rem 1rem;
+  border-bottom: 1px solid rgba(34,160,107,0.2);
+}
+
+.answer-inner { padding: 1.25rem; }
+.answer-content { display: flex; flex-direction: column; gap: 0.9rem; }
+
+.answer-text {
+  font-size: 0.925rem; color: var(--text-primary);
+  line-height: 1.75; white-space: pre-wrap;
+}
+
+.answer-footer {
+  display: flex; flex-direction: column; gap: 0.65rem;
+  padding-top: 0.75rem; border-top: 1px solid var(--border);
+}
+
+.answer-meta {
+  display: flex; align-items: center;
+  gap: 0.4rem; font-size: 0.78rem; color: var(--text-muted);
+}
+.meta-avatar {
+  width: 20px; height: 20px; border-radius: 50%;
+  background: var(--accent-dim); color: var(--accent);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.65rem; font-weight: 700;
+}
+.meta-name { color: var(--text-secondary); font-weight: 500; }
+.meta-sep  { color: var(--border-light); }
+
+/* Action buttons row */
+.answer-actions {
+  display: flex; align-items: center;
+  flex-wrap: wrap; gap: 0.5rem;
+}
+
+/* Base vote button */
+.vote-btn {
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  padding: 0.38rem 0.85rem; border-radius: 8px;
+  font-size: 0.8rem; font-weight: 500;
+  font-family: var(--font-body);
+  background: var(--bg); border: 1px solid var(--border);
+  color: var(--text-muted); cursor: pointer;
+  transition: all 0.15s; white-space: nowrap;
+}
+.vote-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+/* Helpful */
+.helpful-btn:hover:not(:disabled) { border-color: var(--green); color: var(--green); background: var(--green-dim); }
+.helpful-btn.voted { background: var(--green-dim); border-color: var(--green); color: var(--green); font-weight: 600; }
+
+/* Not helpful */
+.not-helpful-btn:hover:not(:disabled) { border-color: var(--red); color: var(--red); background: var(--red-dim); }
+.not-helpful-btn.voted { background: var(--red-dim); border-color: var(--red); color: var(--red); font-weight: 600; }
+
+/* Solve button */
+.solve-btn:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); background: var(--accent-dim); }
+.solve-btn.voted { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+/* Vote counts */
+.vote-count {
+  font-size: 0.7rem; font-weight: 700;
+  padding: 0.08rem 0.4rem; border-radius: 999px; min-width: 18px; text-align: center;
+}
+.helpful-count    { background: var(--green); color: #fff; }
+.not-helpful-count { background: var(--red); color: #fff; }
+
+/* Discuss button — pushed to right */
+.discuss-btn {
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  padding: 0.38rem 0.85rem; border-radius: 8px;
+  font-size: 0.8rem; font-weight: 500;
+  font-family: var(--font-body);
+  background: var(--bg); border: 1px solid var(--border);
+  color: var(--text-muted); cursor: pointer;
+  transition: all 0.15s; margin-left: auto;
+}
+.discuss-btn:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-dim); }

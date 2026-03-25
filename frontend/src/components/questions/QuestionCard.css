@@ -1,0 +1,68 @@
+.question-card {
+  display: flex; flex-direction: column; gap: 0.85rem;
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 1.25rem 1.5rem;
+  transition: var(--transition); cursor: pointer;
+}
+.question-card:hover {
+  border-color: var(--accent);
+  background: var(--bg-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(91,76,245,0.08);
+}
+
+.qcard-top {
+  display: flex; align-items: center; gap: 0.5rem;
+  flex-wrap: wrap; min-height: 20px;
+}
+
+.qcard-solved {
+  font-size: 0.7rem; font-weight: 700;
+  background: var(--green-dim); color: var(--green);
+  padding: 0.18rem 0.55rem; border-radius: 999px;
+  border: 1px solid rgba(34,160,107,0.2);
+}
+
+.qcard-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+.qcard-tag {
+  font-size: 0.7rem; font-weight: 600;
+  background: var(--accent-dim); color: var(--accent);
+  padding: 0.18rem 0.55rem; border-radius: 999px;
+  border: 1px solid rgba(91,76,245,0.15);
+}
+
+.qcard-title {
+  font-size: 0.975rem; font-weight: 600;
+  color: var(--text-primary); line-height: 1.4;
+  transition: var(--transition);
+}
+.question-card:hover .qcard-title { color: var(--accent); }
+
+.qcard-desc {
+  font-size: 0.85rem; color: var(--text-secondary); line-height: 1.55;
+}
+
+.qcard-footer {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-top: 0.75rem; border-top: 1px solid var(--border);
+}
+
+.qcard-meta {
+  display: flex; align-items: center; gap: 0.4rem;
+  font-size: 0.78rem; color: var(--text-muted);
+}
+.meta-avatar {
+  width: 20px; height: 20px; border-radius: 50%;
+  background: var(--accent-dim); color: var(--accent);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.65rem; font-weight: 700;
+}
+.meta-name { color: var(--text-secondary); font-weight: 500; }
+.meta-sep  { color: var(--border-light); }
+
+.qcard-stat {
+  display: flex; align-items: center; gap: 0.3rem;
+  font-size: 0.78rem; color: var(--text-muted);
+  background: var(--bg); padding: 0.2rem 0.6rem;
+  border-radius: 999px; border: 1px solid var(--border);
+}

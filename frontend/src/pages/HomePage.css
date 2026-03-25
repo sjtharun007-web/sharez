@@ -1,0 +1,113 @@
+.home-page { padding: 2rem 0 4rem; min-height: calc(100vh - 64px); }
+
+.home-header {
+  display: flex; align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1.5rem; gap: 1rem; flex-wrap: wrap;
+}
+.home-title { font-family: var(--font-display); font-size: 1.75rem; color: var(--text-primary); margin-bottom: 0.25rem; }
+.home-sub { font-size: 0.875rem; color: var(--text-muted); }
+
+/* Search row */
+.search-row {
+  display: flex; align-items: center;
+  gap: 0.75rem; margin-bottom: 1rem; flex-wrap: wrap;
+}
+
+.search-wrap { position: relative; flex: 1; min-width: 200px; }
+.search-icon {
+  position: absolute; left: 0.85rem; top: 50%;
+  transform: translateY(-50%); font-size: 0.85rem; pointer-events: none;
+}
+.search-input {
+  width: 100%; background: var(--bg-card);
+  border: 1.5px solid var(--border); border-radius: var(--radius-sm);
+  padding: 0.65rem 2.4rem 0.65rem 2.4rem;
+  color: var(--text-primary); font-size: 0.9rem;
+  font-family: var(--font-body); outline: none; transition: var(--transition);
+}
+.search-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-dim); }
+.search-input::placeholder { color: var(--text-muted); }
+
+.search-clear {
+  position: absolute; right: 0.75rem; top: 50%;
+  transform: translateY(-50%);
+  background: none; border: none; color: var(--text-muted);
+  font-size: 0.75rem; cursor: pointer; padding: 0.2rem;
+  transition: color 0.15s;
+}
+.search-clear:hover { color: var(--red); }
+
+/* Solved filter tabs */
+.filter-tabs {
+  display: flex; gap: 0.2rem;
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); padding: 0.2rem; flex-shrink: 0;
+}
+.filter-tab {
+  padding: 0.35rem 0.85rem; border-radius: 6px;
+  font-size: 0.8rem; font-weight: 500;
+  background: none; border: none;
+  color: var(--text-muted); cursor: pointer;
+  font-family: var(--font-body); transition: all 0.15s; white-space: nowrap;
+}
+.filter-tab:hover { color: var(--text-primary); background: var(--bg-hover); }
+.filter-tab.active { background: var(--accent); color: #fff; }
+
+/* Tags row */
+.tags-row {
+  display: flex; flex-wrap: wrap; align-items: center;
+  gap: 0.4rem; margin-bottom: 1rem;
+}
+.tags-label { font-size: 0.78rem; font-weight: 600; color: var(--text-muted); margin-right: 0.2rem; }
+
+.tag-btn {
+  display: inline-flex; align-items: center; gap: 0.3rem;
+  padding: 0.28rem 0.65rem; border-radius: 999px;
+  font-size: 0.78rem; font-weight: 600;
+  background: var(--bg-card); border: 1px solid var(--border);
+  color: var(--text-secondary); cursor: pointer;
+  font-family: var(--font-body); transition: all 0.15s;
+}
+.tag-btn:hover { border-color: var(--accent); color: var(--accent); }
+.tag-btn.active { background: var(--accent-dim); border-color: var(--accent); color: var(--accent); }
+
+.tag-count {
+  background: var(--border); color: var(--text-muted);
+  font-size: 0.68rem; font-weight: 700;
+  padding: 0.05rem 0.35rem; border-radius: 999px;
+}
+.tag-btn.active .tag-count { background: var(--accent); color: #fff; }
+
+.clear-filters-btn {
+  padding: 0.28rem 0.7rem; border-radius: 999px;
+  font-size: 0.75rem; font-weight: 500;
+  background: none; border: 1px solid var(--border);
+  color: var(--text-muted); cursor: pointer;
+  font-family: var(--font-body); transition: all 0.15s;
+}
+.clear-filters-btn:hover { border-color: var(--red); color: var(--red); }
+
+/* Results bar */
+.results-row { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; }
+.result-count { font-size: 0.82rem; color: var(--text-muted); }
+.filters-active-label {
+  font-size: 0.75rem; color: var(--accent);
+  background: var(--accent-dim); padding: 0.18rem 0.6rem;
+  border-radius: 999px; border: 1px solid rgba(91,76,245,0.2);
+}
+
+/* Questions list */
+.questions-list { display: flex; flex-direction: column; gap: 0.75rem; }
+
+.loading-state {
+  display: flex; align-items: center; justify-content: center;
+  gap: 0.75rem; padding: 4rem; color: var(--text-muted); font-size: 0.9rem;
+}
+
+.empty-state {
+  display: flex; flex-direction: column; align-items: center;
+  gap: 1rem; padding: 5rem 2rem; text-align: center;
+}
+.empty-icon { font-size: 2.5rem; }
+.empty-msg { color: var(--text-muted); font-size: 0.95rem; }
