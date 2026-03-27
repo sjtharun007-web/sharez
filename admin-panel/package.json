@@ -1,11 +1,12 @@
 {
-  "name": "campus-doubt-admin",
+  "name": "sharez-admin",
   "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --port 4200",
     "build": "ng build",
-    "watch": "ng build --watch --configuration development"
+    "watch": "ng build --watch --configuration development",
+    "serve": "npx serve dist/campus-doubt-admin/browser"
   },
   "private": true,
   "dependencies": {
