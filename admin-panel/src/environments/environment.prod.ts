@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://your-backend.railway.app/api'
+  apiUrl: 'https://https://sharez-production.up.railway.app/api'
 };
