@@ -6,7 +6,9 @@
     "start": "ng serve --port 4200",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "serve": "npx serve dist/campus-doubt-admin/browser"
+    "serve": "npx serve dist/campus-doubt-admin/browser",
+    "build:prod": "ng build --configuration production",
+    "serve:dist": "serve dist/campus-doubt-admin/browser -l 4200"
   },
   "private": true,
   "dependencies": {
@@ -20,7 +22,8 @@
     "@angular/router": "^17.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.6.0",
-    "zone.js": "~0.14.2"
+    "zone.js": "~0.14.2",
+    "serve": "^14.2.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^17.0.0",

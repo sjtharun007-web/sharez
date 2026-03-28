@@ -1,39 +1,33 @@
-const express = require('express');
-const cors    = require('cors');
-const dotenv  = require('dotenv');
+const express   = require('express');
+const cors      = require('cors');
+const dotenv    = require('dotenv');
 const connectDB = require('./config/db');
 
 dotenv.config();
 const app = express();
-
-// Connect DB
 connectDB();
 
-// ✅ CORS - explicit origins, no wildcard with credentials
+// CORS — allow localhost for dev and Railway URLs for production
 const allowedOrigins = [
-  'https://profound-gratitude-production-8e76.up.railway.app',
   'http://localhost:3000',
   'http://localhost:4200',
   'http://localhost:5173',
 ];
 
+// Add production URLs from env if set
+if (process.env.FRONTEND_URL)  allowedOrigins.push(process.env.FRONTEND_URL);
+if (process.env.ADMIN_URL)     allowedOrigins.push(process.env.ADMIN_URL);
+
 app.use(cors({
-  origin: function (origin, callback) {
+  origin: (origin, callback) => {
+    // Allow requests with no origin (mobile apps, Postman, curl)
     if (!origin) return callback(null, true);
-
-    if (allowedOrigins.includes(origin)) {
-      return callback(null, true);
-    }
-
-    // ✅ DO NOT throw error (this breaks CORS)
-    return callback(null, false);
+    if (allowedOrigins.includes(origin)) return callback(null, true);
+    callback(new Error(`CORS blocked: ${origin}`));
   },
   credentials: true,
 }));
 
-app.options('*', cors());
-
-// Middleware
 app.use(express.json());
 
 // Routes
@@ -44,14 +38,15 @@ app.use('/api/votes',     require('./routes/voteRoutes'));
 app.use('/api/comments',  require('./routes/commentRoutes'));
 app.use('/api/admin',     require('./routes/adminRoutes'));
 
-app.get('/api/health', (req, res) => res.json({ status: 'OK', message: 'Campus Doubt API running' }));
+app.get('/api/health', (req, res) =>
+  res.json({ status: 'OK', message: 'Sharez API running' })
+);
 
-// Error handler
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(err.statusCode || 500).json({
     success: false,
-    message: err.message || 'Server Error'
+    message: err.message || 'Server Error',
   });
 });
 

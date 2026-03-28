@@ -1,10 +1,9 @@
 import axios from 'axios';
 
 const API = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'https://sharez-production.up.railway.app/api',
+  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000/api',
 });
 
-// Attach JWT token to every request
 API.interceptors.request.use((config) => {
   const token = localStorage.getItem('token');
   if (token) {
@@ -13,7 +12,6 @@ API.interceptors.request.use((config) => {
   return config;
 });
 
-// Handle 401 — token expired or invalid
 API.interceptors.response.use(
   (res) => res,
   (err) => {
