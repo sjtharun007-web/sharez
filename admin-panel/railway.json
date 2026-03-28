@@ -4,7 +4,7 @@
     "builder": "NIXPACKS"
   },
   "deploy": {
-    "startCommand": "npx serve dist/campus-doubt-admin/browser -l 4200",
+    "startCommand": "npx serve dist/campus-doubt-admin/browser -l $PORT",
     "restartPolicyType": "ON_FAILURE"
   }
 }
