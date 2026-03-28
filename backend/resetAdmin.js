@@ -1,19 +1,19 @@
 const mongoose = require('mongoose');
-const bcrypt = require('bcryptjs');
 const dotenv = require('dotenv');
 dotenv.config();
 
 mongoose.connect(process.env.MONGO_URL).then(async () => {
   const User = require('./models/User');
-  const hash = await bcrypt.hash('Admin@123', 10);
-  const result = await User.findOneAndUpdate(
-    { email: 'admin@sharez.com' },
-    { password: hash },
-    { new: true }
-  );
-  console.log('✅ Password reset for:', result.email);
+  await User.deleteMany({ role: 'admin' });
+  await User.create({
+    name: 'Admin',
+    email: 'admin@sharez.com',
+    password: 'Admin@123',
+    role: 'admin'
+  });
+  console.log('✅ Admin created: admin@sharez.com / Admin@123');
   process.exit(0);
 }).catch(err => {
-  console.error(err);
+  console.error(err.message);
   process.exit(1);
 });
