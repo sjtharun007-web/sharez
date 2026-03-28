@@ -1,11 +1,10 @@
 {
   "$schema": "https://railway.app/railway.schema.json",
   "build": {
-    "builder": "NIXPACKS",
-    "buildCommand": "npm install && npm run build"
+    "builder": "NIXPACKS"
   },
   "deploy": {
-    "startCommand": "npx serve dist -l 3000",
+    "startCommand": "caddy run --config /assets/Caddyfile --adapter caddyfile",
     "restartPolicyType": "ON_FAILURE"
   }
 }
